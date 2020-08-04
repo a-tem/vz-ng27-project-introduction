@@ -1,0 +1,6 @@
+<ng-container *ngFor="let product of productsList">
+  <app-product
+    [product]="product"
+    (productPurchased)="onProductPurchased($event)"
+  ></app-product>
+</ng-container>
