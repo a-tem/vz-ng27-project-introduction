@@ -10,3 +10,5 @@ created `ProductComponent`, added handler for button `click` action, added `@Inp
 created `ProductsService` as a `productsList: IProductModel` provider, created `ProductListComponent`;
 
 created `CartListComponent`, added to the `AppComponent` template;
+
+implemented interaction between `ProductListComponent` and `CartListComponent`

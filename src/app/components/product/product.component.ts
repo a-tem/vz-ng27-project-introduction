@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {IProductModel} from '@shared/models/product.model';
 
 @Component({
@@ -8,6 +8,7 @@ import {IProductModel} from '@shared/models/product.model';
 })
 export class ProductComponent implements OnInit {
   @Input() product: IProductModel;
+  @Output() productPurchased = new EventEmitter<IProductModel>();
 
   constructor() { }
 
@@ -15,7 +16,8 @@ export class ProductComponent implements OnInit {
   }
 
   onBuy() {
-    console.log('product was purchased');
+    console.log('product was purchased', this.product);
+    this.productPurchased.emit(this.product);
   }
 
 }

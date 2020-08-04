@@ -119,6 +119,12 @@
           }
         }
       }
-    }},
-  "defaultProject": "shop"
+    }
+  },
+  "defaultProject": "shop",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }
