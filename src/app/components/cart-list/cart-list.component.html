@@ -1,0 +1,9 @@
+<ng-container *ngIf="productsInCart.length; else emptyCart">
+  <div *ngFor="let product of productsInCart; let i = index">
+    <p>{{ i + 1 }}: {{ product.name }} - {{ product.price }}</p>
+  </div>
+</ng-container>
+
+<ng-template #emptyCart>
+  <h3>Cart is empty, did you forgot to buy something?</h3>
+</ng-template>
