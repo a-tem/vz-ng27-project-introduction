@@ -12,3 +12,7 @@ created `ProductsService` as a `productsList: IProductModel` provider, created `
 created `CartListComponent`, added to the `AppComponent` template;
 
 implemented interaction between `ProductListComponent` and `CartListComponent`
+
+migrated to the scss extension from css
+
+folders structure was changed

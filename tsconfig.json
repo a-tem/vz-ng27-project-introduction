@@ -16,8 +16,10 @@
     ],
     "paths": {
       "@app/*": ["app/*"],
+      "@core/*": ["app/core/*"],
       "@shared/*": ["app/shared/*"],
-      "@components/*": ["app/components/*"]
+      "@cart/*": ["app/cart/*"],
+      "@products/*": ["app/products/*"]
     },
     "lib": [
       "es2018",
