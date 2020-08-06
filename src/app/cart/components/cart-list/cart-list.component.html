@@ -1,7 +1,7 @@
-<ng-container *ngIf="productsInCart.length; else emptyCart">
-  <h3>{{ productsInCart.length }} items in Cart:</h3>
-  <div *ngFor="let product of productsInCart; let i = index">
-    <p>{{ i + 1 }}: {{ product.name }} - {{ product.price }}</p>
+<ng-container *ngIf="cartService.productsList.length; else emptyCart">
+  <h3>{{ cartService.cartInfo.totalItems }} items in Cart, with total price: {{ cartService.cartInfo.totalPrice }}</h3>
+  <div *ngFor="let product of cartService.productsList; let i = index">
+    <p>{{ i + 1 }}: {{ product.name }}</p>
   </div>
 </ng-container>
 

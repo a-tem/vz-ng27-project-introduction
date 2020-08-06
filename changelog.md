@@ -1,18 +1,11 @@
-# **feature/introduction**
-created `FirstComponent` with properties, added it to the `AppComponent` template;
+# **feature/components**
 
-added shared folder for storing models, enums, etc. files;
+task 1 done: changed app folders structure
 
-created `IProductModel` interface, `ECategoryEnum` enum;
+task 2 done: was implemented in previous PR
 
-created `ProductComponent`, added handler for button `click` action, added `@Input() product: IProductModel` property;
+task 3 done: was added `disabled` property to the button
 
-created `ProductsService` as a `productsList: IProductModel` provider, created `ProductListComponent`;
+task 4 done: implemented `cartInfo` variable that return `totalPrice` and `totalCount` of items in Cart
 
-created `CartListComponent`, added to the `AppComponent` template;
-
-implemented interaction between `ProductListComponent` and `CartListComponent`
-
-migrated to the scss extension from css
-
-folders structure was changed
+task 5 done: was added cartInfo data to the `CartInfoComponent` template

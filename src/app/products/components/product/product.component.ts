@@ -7,7 +7,9 @@ import {IProductModel} from '@shared/models/product.model';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
+
   @Input() product: IProductModel;
+
   @Output() productPurchased = new EventEmitter<IProductModel>();
 
   constructor() { }
