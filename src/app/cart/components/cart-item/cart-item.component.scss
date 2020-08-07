@@ -4,4 +4,12 @@
   border-radius: 3px;
   margin-bottom: 7px;
   padding: 4px 6px;
+  &.odd-item {
+    background-color: #f1f1f1;
+  }
+}
+
+.active {
+  background-color: #f00!important;
+  color: #fff !important;
 }

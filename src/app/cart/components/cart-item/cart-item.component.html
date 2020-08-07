@@ -1,6 +1,6 @@
-<div class="cart-item">
+<div class="cart-item" [ngClass]="{'odd-item': isOdd}">
   <h3>{{ item.name }}</h3>
-  <div>Items in cart: <strong>{{ item.items.length }}</strong></div>
+  <div appHighlight="green">Items in cart: <strong>{{ item.items.length }}</strong></div>
   <div>
     <button (click)="onAddItem()">+</button>
 

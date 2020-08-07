@@ -25,4 +25,8 @@ export class CartListComponent implements OnInit {
     this.cartService.removeAllItems($event);
   }
 
+  isItemOdd(index) {
+    return index % 2 !== 0;
+  }
+
 }
