@@ -1,0 +1,17 @@
+<div class="cart-item" [ngClass]="{'odd-item': isOdd}">
+  <h3>{{ item.name }}</h3>
+  <div appHighlight="green">Items in cart: <strong>{{ item.items.length }}</strong></div>
+  <div>
+    <button (click)="onAddItem()">+</button>
+
+    <button (click)="onRemoveItem()">-</button>
+
+    <button (click)="onDeleteAllItems()">
+      <ng-container *ngIf="item.items.length > 1; else removeLastItem">Remove All Items</ng-container>
+    </button>
+    <ng-template #removeLastItem>
+      Remove Item
+    </ng-template>
+  </div>
+
+</div>

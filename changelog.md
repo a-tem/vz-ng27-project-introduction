@@ -1,18 +1,21 @@
-# **feature/introduction**
-created `FirstComponent` with properties, added it to the `AppComponent` template;
+# **feature/components**
 
-added shared folder for storing models, enums, etc. files;
+task 1 done: changed app folders structure
 
-created `IProductModel` interface, `ECategoryEnum` enum;
+task 2 done: was implemented in previous PR
 
-created `ProductComponent`, added handler for button `click` action, added `@Input() product: IProductModel` property;
+task 3 done: was added `disabled` property to the button
 
-created `ProductsService` as a `productsList: IProductModel` provider, created `ProductListComponent`;
+task 4 done: implemented `cartInfo` variable that return `totalPrice` and `totalCount` of items in Cart
 
-created `CartListComponent`, added to the `AppComponent` template;
+task 5 done: was added cartInfo data to the `CartInfoComponent` template
 
-implemented interaction between `ProductListComponent` and `CartListComponent`
+task 6 done: added `CartItemComponent`, implemented adding/removing functionality from Cart
 
-migrated to the scss extension from css
+task 7,8, 10 done
 
-folders structure was changed
+task 11 done: added template variable and set app title string from `AppComponent` via `@ViewChild`
+
+task 12 **particularly done**: added `HighlightDirective`, it works fine for `CartListComponent`, but for some reason - **works incorrectly for** `CartItemComponent`. Additional clarification would be good.
+
+task 13 done: added `ngClass` directive for odd `CartItemComponent` items

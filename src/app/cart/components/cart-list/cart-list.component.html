@@ -1,7 +1,15 @@
-<ng-container *ngIf="productsInCart.length; else emptyCart">
-  <h3>{{ productsInCart.length }} items in Cart:</h3>
-  <div *ngFor="let product of productsInCart; let i = index">
-    <p>{{ i + 1 }}: {{ product.name }} - {{ product.price }}</p>
+<ng-container *ngIf="cartService.productsList.length; else emptyCart">
+  <h3 appHighlight="rgba(0,0,255,.1)">
+    {{ cartService.cartInfo.totalItems }} items in Cart, with total price: {{ cartService.cartInfo.totalPrice }}
+  </h3>
+  <div *ngFor="let product of cartService.cartProductsList; let i = index">
+    <app-cart-item
+      [item]="product"
+      [isOdd]="isItemOdd(i)"
+      (itemAdded)="onItemAdded($event)"
+      (itemRemoved)="onItemRemoved($event)"
+      (allItemsRemoved)="onIllItemsRemoved($event)"
+    ></app-cart-item>
   </div>
 </ng-container>
 

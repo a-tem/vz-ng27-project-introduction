@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {IProductModel} from '@shared/models/product.model';
 import {CartService} from '@cart/services/cart.service';
 
 @Component({
@@ -8,11 +7,26 @@ import {CartService} from '@cart/services/cart.service';
   styleUrls: ['./cart-list.component.scss']
 })
 export class CartListComponent implements OnInit {
-  productsInCart: IProductModel[] = [];
-  constructor(private cartService: CartService) { }
+
+  constructor(public cartService: CartService) { }
 
   ngOnInit(): void {
-    this.productsInCart = this.cartService.productsList;
+  }
+
+  onItemAdded($event: string) {
+    this.cartService.addItem($event);
+  }
+
+  onItemRemoved($event: string) {
+    this.cartService.removeItem($event);
+  }
+
+  onIllItemsRemoved($event: string) {
+    this.cartService.removeAllItems($event);
+  }
+
+  isItemOdd(index) {
+    return index % 2 !== 0;
   }
 
 }
