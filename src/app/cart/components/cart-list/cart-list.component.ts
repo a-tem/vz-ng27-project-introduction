@@ -14,15 +14,15 @@ export class CartListComponent implements OnInit {
   }
 
   onItemAdded($event: string) {
-    this.cartService.addItem($event);
+    this.cartService.increaseQuantity($event);
   }
 
   onItemRemoved($event: string) {
-    this.cartService.removeItem($event);
+    this.cartService.decreaseQuantity($event);
   }
 
   onIllItemsRemoved($event: string) {
-    this.cartService.removeAllItems($event);
+    this.cartService.removeAllProducts($event);
   }
 
   isItemOdd(index) {

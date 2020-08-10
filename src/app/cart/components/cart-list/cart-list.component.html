@@ -1,6 +1,6 @@
-<ng-container *ngIf="cartService.productsList.length; else emptyCart">
+<ng-container *ngIf="cartService.cartProducts.length; else emptyCart">
   <h3 appHighlight="rgba(0,0,255,.1)">
-    {{ cartService.cartInfo.totalItems }} items in Cart, with total price: {{ cartService.cartInfo.totalPrice }}
+    {{ cartService.totalQuantity }} items in Cart, with total price: {{ cartService.totalSum }}
   </h3>
   <div *ngFor="let product of cartService.cartProductsList; let i = index">
     <app-cart-item
