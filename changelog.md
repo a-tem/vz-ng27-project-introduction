@@ -1,15 +1,15 @@
-# **feature/services-and-di**
+# **feature/pipes**
 
-task 1 done: renamed methods in `CartService`. Added separate `totalQuantity` and `totalSum` properties, added `updateCartData` method for updating those properties when `cartProducts` array is changed.
+task 1 done: applied `currency` and `titlecase` pipes in `ProductComponent` template.
 
-task 2 done: created `LocalStorageService`, injected into `CartListService` via `providers` property and `useClass` option.
+task 2 done: wrapper response from `ProductsService.getProduct()` method into `of` operator and added `async` pipe to the `ProductListComponent` template.
 
-task 3 done: created `ConfigOptionsService` with get/set data methods.
+task 3 done: created `OrderByPipe` and applied to the `ProductComponent` template.
 
-task 4 done: created `ConstantsService`, inject it into `FirstComponent` and provide via `useValue` property.
+task 4 done: `OrderByPipe` registered in `SharedModule` and added to `exports`
 
-task 5 done: created `GeneratorService` and registered via useFactory + deps properties in `FirstComponent`. Also was created `random-generator.factory`.
+task 5 done: created `DropdownComponent` for rendering smple list of items. Use that component for change `OrderByPipe` parameters in `ProductListComponent` sorting and ordering directions.
 
-task 6 done: created `LayoutModule` and `AboutCompoennt`. Moved all services related to this task list into `AboutComponent`, decoreted them with `@Optional`.
+task 6 done: `CommonModule` and `FormsModule` exported from SharedModule and removed from `ProductsModule` and `CartModule`
 
-task 7 done: created `ToggleOnClickDirective` toggle css-class (class name is `@Input`) on clicked element. Applied directive to the `ProductComponent` element. 
+task 7 done: all changed described in `changelog.md`
