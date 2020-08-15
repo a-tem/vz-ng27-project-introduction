@@ -12,4 +12,4 @@ task 5 done: created `GeneratorService` and registered via useFactory + deps pro
 
 task 6 done: created `LayoutModule` and `AboutCompoennt`. Moved all services related to this task list into `AboutComponent`, decoreted them with `@Optional`.
 
-task 7: in progress
+task 7 done: created `ToggleOnClickDirective` toggle css-class (class name is `@Input`) on clicked element. Applied directive to the `ProductComponent` element. 
