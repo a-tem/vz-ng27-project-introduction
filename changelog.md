@@ -4,4 +4,6 @@ task 1 done: renamed methods in `CartService`. Added separate `totalQuantity` an
 
 task 2 done: created `LocalStorageService`, injected into `CartListService` via `providers` property and `useClass` option.
 
-task 3: in progress
+task 3 done: created `ConfigOptionsService` with get/set data methods.
+
+task 4: in progress
