@@ -6,4 +6,6 @@ task 2 done: created `LocalStorageService`, injected into `CartListService` via 
 
 task 3 done: created `ConfigOptionsService` with get/set data methods.
 
-task 4: in progress
+task 4 done: created `ConstantsService`, inject it into `FirstComponent` and provide via `useValue` property
+
+task 5: in progress
