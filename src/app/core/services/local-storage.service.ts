@@ -1,10 +1,14 @@
 import {Injectable} from '@angular/core';
 import {TStorageData} from '@shared/models/storage.model';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class LocalStorageService {
 
-  constructor(private storage: Storage) { }
+  private storage: Storage = localStorage;
+
+  constructor() { }
 
   setItem(key: string, value: TStorageData) {
     this.storage.setItem(key, JSON.stringify(value));

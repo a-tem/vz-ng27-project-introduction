@@ -10,4 +10,6 @@ task 4 done: created `ConstantsService`, inject it into `FirstComponent` and pro
 
 task 5 done: created `GeneratorService` and registered via useFactory + deps properties in `FirstComponent`. Also was created `random-generator.factory`.
 
-task 6: in progress
+task 6 done: created `LayoutModule` and `AboutCompoennt`. Moved all services related to this task list into `AboutComponent`, decoreted them with `@Optional`.
+
+task 7: in progress
