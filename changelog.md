@@ -8,4 +8,8 @@ task 3 done: created `OrderByPipe` and applied to the `ProductComponent` templat
 
 task 4 done: `OrderByPipe` registered in `SharedModule` and added to `exports`
 
-task 5: in progress
+task 5 done: created `DropdownComponent` for rendering smple list of items. Use that component for change `OrderByPipe` parameters in `ProductListComponent` sorting and ordering directions.
+
+task 6 done: `CommonModule` and `FormsModule` exported from SharedModule and removed from `ProductsModule` and `CartModule`
+
+task 7 done: all changed described in `changelog.md`

@@ -1,4 +1,9 @@
-<ng-container *ngFor="let product of (productsList | async) | orderBy: 'price'">
+<app-dropdown [dropdownList]="sortingList" (selectedOption)="onSortingFieldChanged($event)"></app-dropdown>
+<app-dropdown [dropdownList]="sortingOrder" (selectedOption)="onOrderFieldChanged($event)"></app-dropdown>
+
+<pre> orderBy pipe is applied by: SortingField: {{ sortingField }} and Descending: {{ orderingField }} </pre>
+
+<ng-container *ngFor="let product of (productsList | async) | orderBy: sortingField: orderingField">
   <app-product
     [product]="product"
     (productPurchased)="onProductPurchased($event)"

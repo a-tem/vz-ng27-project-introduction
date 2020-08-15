@@ -1,0 +1,5 @@
+<select (change)="optionSelected($event.target.value)">
+  <ng-container *ngFor="let option of dropdownList">
+    <option [value]="option.value">{{ option.title }}</option>
+  </ng-container>
+</select>
