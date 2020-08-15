@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {PRODUCTS_LIST} from '@shared/const/products.const';
+import {of} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,6 @@ export class ProductsService {
   constructor() { }
 
   getProducts() {
-    return this.products;
+    return of(this.products);
   }
 }
