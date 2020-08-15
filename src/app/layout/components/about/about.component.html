@@ -1,0 +1,9 @@
+<pre>
+LocalStorageService read: {{ localStorageService.getItem(componentStoreKey) | json }}
+
+ConfigService read: {{ configOptionsService.getConfigObject() | json }}
+
+Injected by useValue data: {{ constAppData | json }}
+
+Injected by useFactory data: {{ generatedString | json }}
+</pre>

@@ -17,7 +17,7 @@ export class ProductListComponent implements OnInit {
   }
 
   onProductPurchased(product: IProductModel) {
-    this.cartService.addProductToCart(product);
+    this.cartService.addProduct(product);
   }
 
 }

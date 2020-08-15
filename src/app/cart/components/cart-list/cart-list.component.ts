@@ -4,7 +4,7 @@ import {CartService} from '@cart/services/cart.service';
 @Component({
   selector: 'app-cart-list',
   templateUrl: './cart-list.component.html',
-  styleUrls: ['./cart-list.component.scss']
+  styleUrls: ['./cart-list.component.scss'],
 })
 export class CartListComponent implements OnInit {
 
@@ -14,15 +14,15 @@ export class CartListComponent implements OnInit {
   }
 
   onItemAdded($event: string) {
-    this.cartService.addItem($event);
+    this.cartService.increaseQuantity($event);
   }
 
   onItemRemoved($event: string) {
-    this.cartService.removeItem($event);
+    this.cartService.decreaseQuantity($event);
   }
 
   onIllItemsRemoved($event: string) {
-    this.cartService.removeAllItems($event);
+    this.cartService.removeAllProducts($event);
   }
 
   isItemOdd(index) {

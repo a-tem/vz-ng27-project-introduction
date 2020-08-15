@@ -6,22 +6,20 @@ import {ICartCombinedItem, ICartInfo} from '@shared/models/cart.model';
   providedIn: 'root'
 })
 export class CartService {
-  productsList: IProductModel[] = [];
+  cartProducts: IProductModel[] = [];
+  totalQuantity: number;
+  totalSum: number;
+
   constructor() { }
 
-  addProductToCart(product: IProductModel) {
-    this.productsList.push(product);
-  }
+  addProduct(product: IProductModel) {
+    this.cartProducts.push(product);
 
-  get cartInfo(): ICartInfo {
-    return {
-      totalPrice: this.productsList.reduce((acc, cur) => acc + cur.price, 0),
-      totalItems: this.productsList.length
-    };
+    this.updateCartData();
   }
 
   get cartProductsList(): ICartCombinedItem[] {
-    return this.productsList.reduce((acc: ICartCombinedItem[], cur) => {
+    return this.cartProducts.reduce((acc: ICartCombinedItem[], cur) => {
       const itemIndex = acc.findIndex(item => item.name === cur.name);
       if (itemIndex >= 0) {
         acc[itemIndex].items.push(cur);
@@ -32,18 +30,29 @@ export class CartService {
     }, []);
   }
 
-  addItem(name: string) {
-    const item = this.productsList.find(listItem => listItem.name === name);
-    this.productsList.push(item);
+  increaseQuantity(name: string) {
+    const item = this.cartProducts.find(listItem => listItem.name === name);
+    this.cartProducts.push(item);
+
+    this.updateCartData();
   }
 
-  removeItem(name: string) {
-    const itemIndex = this.productsList.findIndex(listItem => listItem.name === name);
-    this.productsList.splice(itemIndex, 1);
+  decreaseQuantity(name: string) {
+    const itemIndex = this.cartProducts.findIndex(listItem => listItem.name === name);
+    this.cartProducts.splice(itemIndex, 1);
+
+    this.updateCartData();
   }
 
-  removeAllItems(name: string) {
-    this.productsList = this.productsList.filter(item => item.name !== name);
+  removeAllProducts(name: string) {
+    this.cartProducts = this.cartProducts.filter(item => item.name !== name);
+
+    this.updateCartData();
+  }
+
+  updateCartData() {
+    this.totalSum = this.cartProducts.reduce((acc, cur) => acc + cur.price, 0);
+    this.totalQuantity = this.cartProducts.length;
   }
 
 }
