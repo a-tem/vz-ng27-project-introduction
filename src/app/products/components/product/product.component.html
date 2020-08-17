@@ -1,7 +1,29 @@
-<div class="product-item" appToggleOnClick="active">
-  <h2>{{ product.name | titlecase }}</h2>
-  <p>Category: {{ product.category }}, Price: {{ product.price | currency }}, IsAvailable: {{ product.isAvailable }}</p>
-  <p><small>{{ product.description }}</small></p>
-  <button [disabled]="!product.isAvailable" (click)="onBuy()">Buy</button>
+<div
+  class="mb-4 border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal"
+  appToggleOnClick="border-red-400"
+>
+  <div class="font-bold text-xl mb-2">
+    <div>
+      {{ product.name | titlecase }}
+      <span class="font-normal">{{ product.price | currency }}</span>
+    </div>
+  </div>
+
+  <div class="mb-2">
+    <p class="mb-2 text-gray-700 text-base">{{ product.description }}</p>
+    <div class="mb-2">
+      <span
+        class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2"
+        *ngIf="product.isAvailable">Available
+      </span>
+      <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">{{ product.category }}</span>
+    </div>
+  </div>
+
+  <button
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+    [ngClass]="{'opacity-50 cursor-not-allowed': !product.isAvailable}"
+    [disabled]="!product.isAvailable"
+    (click)="onBuy()"
+  >Buy</button>
 </div>
-<hr>
