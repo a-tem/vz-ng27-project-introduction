@@ -5,6 +5,7 @@
 
 <pre> orderBy pipe is applied by: SortingField: {{ sortingField }} and Descending: {{ orderingField }} </pre>
 
+<!-- Почему для директивы *ngFor вы используете дополнительный элемент ng-container, а не размещаете ее на самом компоненте app-product? -->
 <ng-container *ngFor="let product of (productsList | async) | orderBy: sortingField: orderingField">
   <app-product
     [product]="product"
