@@ -1,4 +1,4 @@
 export enum ECategoryEnum {
-  First,
-  Second
+  First = 'Fresh',
+  Second = 'Juicy'
 }
