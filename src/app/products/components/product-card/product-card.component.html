@@ -1,0 +1,8 @@
+<div class="flex justify-center">
+  <app-product
+    *ngIf="product"
+    [product]="product"
+    (productPurchased)="onProductPurchased($event)"
+    class="max-w-sm"
+  ></app-product>
+</div>

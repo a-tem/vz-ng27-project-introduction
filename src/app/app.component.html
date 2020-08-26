@@ -2,14 +2,9 @@
 <!--<app-about></app-about>-->
 
 <h1 #appName></h1>
-
-<div class="main">
-
-  <div class="main-col left">
-    <app-product-list></app-product-list>
-  </div>
-
-  <div class="main-col right">
-    <app-cart-list></app-cart-list>
+<app-header [cartItemsCount]="cartService.totalQuantity"></app-header>
+<div class="main flex flex-wrap">
+  <div class="w-2/3 mx-auto">
+    <router-outlet></router-outlet>
   </div>
 </div>

@@ -1,0 +1,6 @@
+<app-cart-list></app-cart-list>
+
+<button
+  *ngIf="cartService.totalQuantity"
+  (click)="onCreateOrder()"
+>Create Order</button>
