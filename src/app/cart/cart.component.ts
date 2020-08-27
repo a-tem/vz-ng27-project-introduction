@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {CartService} from '@cart/services';
 import {Router} from '@angular/router';
 import {Confirm} from '@shared/decorators/confirm.decorator';
+import {LocalStorageService} from '@core/services/local-storage.service';
+import {PRODUCTS_FOR_ORDER} from '@shared/const/storage.const';
 
 @Component({
   selector: 'app-cart',
@@ -11,7 +13,8 @@ import {Confirm} from '@shared/decorators/confirm.decorator';
 export class CartComponent implements OnInit {
 
   constructor(public cartService: CartService,
-              private router: Router) { }
+              private router: Router,
+              private localStorageService: LocalStorageService) { }
 
   ngOnInit(): void {
   }
@@ -24,6 +27,7 @@ export class CartComponent implements OnInit {
 
   createOrder() {
     // todo: confirmation?
+    this.localStorageService.setItem(PRODUCTS_FOR_ORDER, this.cartService.cartProductsList);
     this.router.navigate(['order']);
   }
 

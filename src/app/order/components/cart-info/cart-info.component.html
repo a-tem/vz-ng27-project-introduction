@@ -1,0 +1,11 @@
+<div class="border border-gray-300 rounded p-4">
+  <div *ngFor="let item of products" class="flex flex-row">
+    <div class="text-md font-medium text-gray-700">{{ item.name }}: <span class="font-semibold">{{item.items.length}}</span></div>
+  </div>
+
+  <div class="text-lg font-semibold text-gray-800 mt-4 mb-2">Total: {{getProductsSum() | currency}}</div>
+
+  <button appButtonStyle="blue" class="block w-full" type="button" (click)="goToCart()">
+    Edit Cart
+  </button>
+</div>
