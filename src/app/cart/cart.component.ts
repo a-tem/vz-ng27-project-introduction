@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CartService} from '@cart/services';
 import {Router} from '@angular/router';
+import {Confirm} from '@shared/decorators/confirm.decorator';
 
 @Component({
   selector: 'app-cart',
@@ -15,8 +16,14 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onCreateOrder() {
-    // return this.cartService.cartProductsList;
+  @Confirm('Are you really want to clear the Cart?')
+  clearCart() {
+    this.cartService.clearCart();
+    console.warn('Not implemented yet');
+  }
+
+  createOrder() {
+    // todo: confirmation?
     this.router.navigate(['order']);
   }
 

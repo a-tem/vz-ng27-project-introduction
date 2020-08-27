@@ -1,20 +1,20 @@
-<ul class="flex">
-  <li class="mr-6">
-    <a class="text-blue-500 hover:text-blue-800" routerLink="home" routerLinkActive="">Home</a>
+<ul class="flex mb-4">
+  <li class="flex mr-6">
+    <a appButtonStyle="gray" class="" routerLink="home" routerLinkActive="bg-gray-600">Home</a>
   </li>
-  <li class="mr-6">
-    <a class="text-blue-500 hover:text-blue-800" routerLink="cart" routerLinkActive="">
+  <li class="flex mr-6">
+    <a appButtonStyle="gray" class="" routerLink="cart" routerLinkActive="bg-gray-600">
       Cart
       <span *ngIf="cartItemsCount" class="inline-block bg-orange-500 text-white text-xs px-2 rounded-full uppercase font-semibold tracking-wide">{{cartItemsCount}}</span>
     </a>
   </li>
-  <li class="mr-6">
-    <a class="text-blue-500 hover:text-blue-800" routerLink="order" routerLinkActive="">Order</a>
+  <li class="flex mr-6">
+    <a appButtonStyle="gray" class="" routerLink="order" routerLinkActive="bg-gray-600">Order</a>
   </li>
-  <li class="mr-6">
-    <a class="text-blue-500 hover:text-blue-800" routerLink="admin" routerLinkActive="">Admin</a>
+  <li class="flex mr-6">
+    <a appButtonStyle="gray" class="" routerLink="admin" routerLinkActive="bg-gray-600">Admin</a>
   </li>
-  <li class="mr-6">
-    <a class="text-blue-500 hover:text-blue-800 cursor-pointer" (click)="openRandomProduct()">Random Product</a>
+  <li class="flex mr-6">
+    <a appButtonStyle="gray" class="cursor-pointer"  (click)="openRandomProduct()">Random Product</a>
   </li>
 </ul>

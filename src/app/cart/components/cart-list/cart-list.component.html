@@ -1,5 +1,5 @@
-<ng-container *ngIf="cartService.cartProducts.length; else emptyCart">
-  <h3 appHighlight="rgba(0,0,255,.1)">
+
+  <h3 appHighlight="rgba(0,0,255,.1)" class="text-2xl">
     {{ cartService.totalQuantity }} items in Cart, with total price: {{ cartService.totalSum }}
   </h3>
   <div *ngFor="let product of cartService.cartProductsList; let i = index">
@@ -11,8 +11,4 @@
       (allItemsRemoved)="onIllItemsRemoved($event)"
     ></app-cart-item>
   </div>
-</ng-container>
 
-<ng-template #emptyCart>
-  <h3>Cart is empty, did you forgot to buy something?</h3>
-</ng-template>

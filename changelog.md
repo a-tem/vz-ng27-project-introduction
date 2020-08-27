@@ -1,15 +1,13 @@
 # **feature/pipes**
+**implemented features**: Added `HeaderComponent` for render navigation buttons,
+Created `ButtonStyleDirective` for applying button styles from Tailwind.css,
+created `@Confirm` method decorator for avoid accidentally loosing data on form.
 
-task 1 done: applied `currency` and `titlecase` pipes in `ProductComponent` template.
+**task 1 done**: created `routing` for `ProductsList` feature.
 
-task 2 done: wrapper response from `ProductsService.getProduct()` method into `of` operator and added `async` pipe to the `ProductListComponent` template.
+**task 2 done**: created `ProductCard` component for displaying only one Product - productId (for rendering) passed through URL params. 
+Added `routing` for `ProductCard`, and created `Random Product` button in `Header` for displaying random Product from list.
 
-task 3 done: created `OrderByPipe` and applied to the `ProductComponent` template.
+**task 3 done**: created `CartComponent` as a root component for Cart feature, added `routing` for `Cart` feature.
 
-task 4 done: `OrderByPipe` registered in `SharedModule` and added to `exports`
-
-task 5 done: created `DropdownComponent` for rendering smple list of items. Use that component for change `OrderByPipe` parameters in `ProductListComponent` sorting and ordering directions.
-
-task 6 done: `CommonModule` and `FormsModule` exported from SharedModule and removed from `ProductsModule` and `CartModule`
-
-task 7 done: all changed described in `changelog.md`
+**task 4**: in progress added `OrderModule`, `OrderComponent` and `OrderFormComponent`. Work in progress.

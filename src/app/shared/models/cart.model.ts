@@ -8,4 +8,5 @@ export interface ICartInfo {
 export interface ICartCombinedItem {
   name: string;
   items: IProductModel[];
+  image?: string;
 }

@@ -24,7 +24,7 @@ export class CartService {
       if (itemIndex >= 0) {
         acc[itemIndex].items.push(cur);
       } else {
-        acc.push({name: cur.name, items: [cur]});
+        acc.push({name: cur.name, image: cur.image, items: [cur]});
       }
       return acc;
     }, []);
@@ -46,6 +46,12 @@ export class CartService {
 
   removeAllProducts(name: string) {
     this.cartProducts = this.cartProducts.filter(item => item.name !== name);
+
+    this.updateCartData();
+  }
+
+  clearCart() {
+    this.cartProducts = [];
 
     this.updateCartData();
   }

@@ -1,6 +1,18 @@
-<app-cart-list></app-cart-list>
+<ng-container *ngIf="cartService.totalQuantity; else emptyCart">
+  <app-cart-list class="mb-4"></app-cart-list>
 
-<button
-  *ngIf="cartService.totalQuantity"
-  (click)="onCreateOrder()"
->Create Order</button>
+  <button
+    appButtonStyle="blue"
+    (click)="clearCart()"
+  >Clear Cart</button>
+
+  <button
+    appButtonStyle="red"
+    (click)="createOrder()"
+  >Create Order</button>
+</ng-container>
+
+<ng-template #emptyCart>
+  <h3>Cart is empty, did you forgot to buy something?</h3>
+  <button appButtonStyle="blue" routerLink="/home">Go for some products</button>
+</ng-template>
