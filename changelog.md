@@ -13,4 +13,4 @@ Added `routing` for `ProductCard`, and created `Random Product` button in `Heade
 
 **task 4 done**: added `OrderModule`, `OrderComponent` and `OrderFormComponent`. Implemented Saving confirmed orders to localstorage through `LocalStorageService`, clear `Cart` data from localstorage when Order confirmed.
 
-**task 5**: in progress
+**task 5**: in progress added `AdminModule` with `ProductsListComponent`, `OrdersListComponent`, `AddProductComponent` and `AdminComponent` and included into `AppModule` as a `lazy module`. Created `AdminService` and added basic markup for components. Feature still in progress

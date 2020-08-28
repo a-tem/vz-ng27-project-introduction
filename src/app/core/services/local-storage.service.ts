@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {TStorageData} from '@shared/models/storage.model';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +22,7 @@ export class LocalStorageService {
         storageItem[propertyKey] = value;
       }
     } else {
-      (storageItem as any) = {[propertyKey]: value};
+      storageItem = {[propertyKey]: value} as unknown as T;
     }
     this.setItem<T>(storageKey, storageItem);
   }

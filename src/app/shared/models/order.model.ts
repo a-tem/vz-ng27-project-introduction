@@ -10,4 +10,5 @@ export interface IOrderData {
   };
   products: ICartCombinedItem[];
   created: number;
+  totalSum?: number;
 }

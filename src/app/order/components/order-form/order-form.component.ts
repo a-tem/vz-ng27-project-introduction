@@ -44,6 +44,7 @@ export class OrderFormComponent implements OnInit {
       },
       products: this.products,
       created: Date.now(),
+      totalSum: this.products.reduce((acc, item) => acc + item.items.reduce((innAcc, product) => innAcc += product.price, 0), 0),
     };
 
     if (this.orderService.saveOrder(orderData)) {

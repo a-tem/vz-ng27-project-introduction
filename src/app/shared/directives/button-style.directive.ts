@@ -24,6 +24,6 @@ export class ButtonStyleDirective implements OnInit, OnChanges {
 
   getButtonClasses() {
     const color = this.appButtonStyle ? this.appButtonStyle : 'blue';
-    return `bg-${color}-500 hover:bg-${color}-700 text-white py-2 px-4 rounded`;
+    return `inline-block bg-${color}-500 hover:bg-${color}-700 text-white py-2 px-4 rounded`;
   }
 }

@@ -1,0 +1,26 @@
+<ul class="flex border-b mb-8">
+  <li class="mr-1" routerLinkActive="-mb-px">
+    <a
+      class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold"
+      [routerLinkActiveOptions]="{ exact: true }"
+      routerLinkActive="border-l border-t border-r rounded-t text-blue-700"
+      routerLink="./"
+    >Dashboard</a>
+  </li>
+  <li class="mr-1" routerLinkActive="-mb-px">
+    <a class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold"
+       routerLinkActive="border-l border-t border-r rounded-t text-blue-700"
+       routerLink="./products-list"
+    >Products</a>
+  </li>
+  <li class="mr-1" routerLinkActive="-mb-px">
+    <a class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold"
+       routerLinkActive="border-l border-t border-r rounded-t text-blue-700"
+       routerLink="./orders-list"
+    >Orders</a>
+  </li>
+</ul>
+
+<div>
+  <router-outlet></router-outlet>
+</div>
