@@ -1,0 +1,24 @@
+<div class="mb-4">
+  <a routerLink="add" appButtonStyle="blue">Add New Product</a>
+</div>
+
+<div *ngIf="adminService.getProductsList().length">
+  <div *ngFor="let product of adminService.getProductsList()" class="flex flex-row border border-gray-400 rounded mb-4 p-2">
+    <div class="flex w-full justify-between items-center text-gray-800">
+      <span>
+        {{ product.name }}: <span class="font-semibold">{{ product.price | currency }}</span>
+      </span>
+      <a [routerLink]="['edit', product.id]" appButtonStyle="red">Edit</a>
+    </div>
+  </div>
+
+  <!-- FAKE PRODUCT FOR resolveGuard TESTING -->
+  <div  class="flex flex-row border border-gray-400 rounded mb-4 p-2">
+    <div class="flex w-full justify-between items-center text-gray-800">
+        <span>
+          FAKE PRODUCT: <span class="font-semibold">{{ 9999.99 | currency}}</span>
+        </span>
+      <a [routerLink]="['edit', 9999]" appButtonStyle="red">Edit</a>
+    </div>
+  </div>
+</div>

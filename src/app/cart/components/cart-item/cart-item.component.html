@@ -1,17 +1,22 @@
-<div class="cart-item" [ngClass]="{'odd-item': isOdd}">
-  <h3>{{ item.name }}</h3>
-  <div appHighlight="green">Items in cart: <strong>{{ item.items.length }}</strong></div>
-  <div>
-    <button (click)="onAddItem()">+</button>
+<div class="cart-item flex flex-row" [ngClass]="{'odd-item': isOdd}">
+  <div class="flex w-1/6 cart-item-image">
+    <img [src]="item.image" [alt]="item.name">
+  </div>
+  <div class="flex flex-col justify-between ml-4 cart-item-info">
+    <div class="text-xl font-semibold">{{ item.name }}</div>
+    <div class="text-base">Items in cart: <strong>{{ item.items.length }}</strong></div>
+    <div class="">
+      <button appButtonStyle="gray" class="mr-2" (click)="onAddItem()">+</button>
 
-    <button (click)="onRemoveItem()">-</button>
+      <button appButtonStyle="gray" class="mr-2" (click)="onRemoveItem()">-</button>
 
-    <button (click)="onDeleteAllItems()">
-      <ng-container *ngIf="item.items.length > 1; else removeLastItem">Remove All Items</ng-container>
-    </button>
-    <ng-template #removeLastItem>
-      Remove Item
-    </ng-template>
+      <button appButtonStyle="gray" class="mr-2" (click)="onDeleteAllItems()">
+        <ng-container *ngIf="item.items.length > 1; else removeLastItem">Remove All Items</ng-container>
+      </button>
+      <ng-template #removeLastItem>
+        Remove Item
+      </ng-template>
+    </div>
   </div>
 
 </div>

@@ -5,9 +5,12 @@
 
 <pre> orderBy pipe is applied by: SortingField: {{ sortingField }} and Descending: {{ orderingField }} </pre>
 
-<ng-container *ngFor="let product of (productsList | async) | orderBy: sortingField: orderingField">
-  <app-product
-    [product]="product"
-    (productPurchased)="onProductPurchased($event)"
-  ></app-product>
-</ng-container>
+<div class="grid grid-cols-3 gap-4">
+  <ng-container *ngFor="let product of (productsList | async) | orderBy: sortingField: orderingField">
+    <app-product
+      [product]="product"
+      (productPurchased)="onProductPurchased($event)"
+      class="flex"
+    ></app-product>
+  </ng-container>
+</div>

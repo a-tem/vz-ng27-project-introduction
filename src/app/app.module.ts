@@ -6,17 +6,28 @@ import { FirstComponent } from '@core/components/first/first.component';
 import { CartModule } from '@cart/cart.module';
 import {ProductsModule} from '@products/products.module';
 import {LayoutModule} from '@app/layout/layout.module';
+import {AppRoutingModule} from '@app/app-routing.module';
+import { HeaderComponent } from './core/components/header/header.component';
+import { OrderModule } from './order/order.module';
+import {SharedModule} from '@shared/shared.module';
+import { AuthComponent } from './core/components/auth/auth.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FirstComponent,
+    HeaderComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
     ProductsModule,
     CartModule,
     LayoutModule,
+    OrderModule,
+    SharedModule,
+
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
