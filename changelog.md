@@ -17,3 +17,5 @@ Added `routing` for `ProductCard`, and created `Random Product` button in `Heade
 
 **task 5 done**: added `AdminModule` with `ProductsListComponent`, `OrdersListComponent`, `AddProductComponent` and `AdminComponent` and included into `AppModule` as a `lazy module`.
 Created `AdminService` and added basic markup for components. Added `CanActivate` and `ProductResolve` guards.
+
+**tasks 6, 7 done**
