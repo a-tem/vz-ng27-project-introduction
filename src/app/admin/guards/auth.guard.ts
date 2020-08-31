@@ -31,7 +31,6 @@ export class AuthGuard implements CanActivate {
   }
 
   private checkLogin(url: string): boolean | UrlTree {
-    console.log('> GRD checkLogin', {url, userLoggedIn: this.authService.userLoggedIn});
 
     if (this.authService.userLoggedIn) {
       return true;

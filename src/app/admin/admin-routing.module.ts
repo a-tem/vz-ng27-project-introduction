@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {AddProductComponent, OrdersListComponent, ProductsListComponent} from '@app/admin/components';
+import {AddProductComponent, DashboardComponent, OrdersListComponent, ProductsListComponent} from '@app/admin/components';
 import {AdminComponent} from '@app/admin/admin.component';
 import {ProductResolveGuard} from '@app/admin/guards/product-resolve-guard.service';
 
@@ -10,6 +10,10 @@ const routes: Routes = [
     path: '',
     component: AdminComponent,
     children: [
+      {
+        path: 'dashboard',
+        component: DashboardComponent
+      },
       {
         path: 'products-list',
         component: ProductsListComponent

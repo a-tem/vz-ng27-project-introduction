@@ -1,5 +1,5 @@
 <!--<pre>ordersList: {{ordersList | json}}</pre>-->
-<div *ngIf="ordersListArray && ordersListArray.length">
+<div *ngIf="ordersListArray && ordersListArray.length; else emptyOrdersList">
   <div *ngFor="let order of ordersListArray, let i = index" class="border rounded border-gray-200 mb-4 p-2">
     <div class="flex flex-col text-gray-800">
       <div class="text-lg font-semibold">{{order.key}}</div>
@@ -15,3 +15,8 @@
     </div>
   </div>
 </div>
+
+<ng-template #emptyOrdersList>
+  <div class="text-semibold text-xl text-gray-800 text-center">Orders list is empty.</div>
+  <div class="text-semibold text-lg text-gray-600 text-center">Create some Orders firstly.</div>
+</ng-template>
