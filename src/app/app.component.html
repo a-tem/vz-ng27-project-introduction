@@ -1,10 +1,11 @@
 <!--<app-first></app-first>-->
 <!--<app-about></app-about>-->
 
-<h1 #appName></h1>
 <app-header [cartItemsCount]="cartService.totalQuantity"></app-header>
 <div class="main flex flex-wrap">
   <div class="w-2/3 mx-auto">
     <router-outlet></router-outlet>
   </div>
 </div>
+
+<app-spinner></app-spinner>

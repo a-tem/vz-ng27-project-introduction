@@ -10,12 +10,14 @@ import {AppRoutingModule} from '@app/app-routing.module';
 import { HeaderComponent } from './core/components/header/header.component';
 import { OrderModule } from './order/order.module';
 import {SharedModule} from '@shared/shared.module';
+import { AuthComponent } from './core/components/auth/auth.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FirstComponent,
     HeaderComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,

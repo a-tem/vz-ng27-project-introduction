@@ -1,7 +1,7 @@
 import {RouterModule, Routes} from '@angular/router';
-import {ProductListComponent} from '@products/components/product-list/product-list.component';
 import {NgModule} from '@angular/core';
 import {PageNotFoundComponent} from '@core/components';
+import {AuthGuard} from '@app/admin/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -11,7 +11,8 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
   },
   {
     path: '**',

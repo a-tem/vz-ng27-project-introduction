@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {AddProductComponent, OrdersListComponent, ProductsListComponent} from '@app/admin/components';
 import {AdminComponent} from '@app/admin/admin.component';
+import {ProductResolveGuard} from '@app/admin/guards/product-resolve-guard.service';
 
 
 const routes: Routes = [
@@ -19,7 +20,10 @@ const routes: Routes = [
       },
       {
         path: 'products-list/edit/:id',
-        component: AddProductComponent
+        component: AddProductComponent,
+        resolve: {
+          product: ProductResolveGuard
+        }
       },
       {
         path: 'orders-list',

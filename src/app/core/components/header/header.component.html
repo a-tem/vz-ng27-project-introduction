@@ -1,20 +1,28 @@
-<ul class="flex mb-4">
-  <li class="flex mr-6">
-    <a appButtonStyle="gray" class="" routerLink="home" routerLinkActive="bg-gray-600">Home</a>
-  </li>
-  <li class="flex mr-6">
-    <a appButtonStyle="gray" class="" routerLink="cart" routerLinkActive="bg-gray-600">
-      Cart
-      <span *ngIf="cartItemsCount" class="inline-block bg-orange-500 text-white text-xs px-2 rounded-full uppercase font-semibold tracking-wide">{{cartItemsCount}}</span>
-    </a>
-  </li>
-  <li class="flex mr-6">
-    <a appButtonStyle="gray" class="" routerLink="order" routerLinkActive="bg-gray-600">Order</a>
-  </li>
-  <li class="flex mr-6">
-    <a appButtonStyle="gray" class="" routerLink="admin" routerLinkActive="bg-gray-600">Admin</a>
-  </li>
-  <li class="flex mr-6">
-    <a appButtonStyle="gray" class="cursor-pointer"  (click)="openRandomProduct()">Random Product</a>
-  </li>
-</ul>
+<div class="flex flex-row justify-between mt-2 mx-2 mb-4">
+  <ul class="flex">
+    <li class="flex mr-6">
+      <a appButtonStyle="gray" class="" routerLink="home" routerLinkActive="bg-gray-600">Home</a>
+    </li>
+    <li class="flex mr-6">
+      <a appButtonStyle="gray" class="" routerLink="cart" routerLinkActive="bg-gray-600">
+        Cart
+        <span *ngIf="cartItemsCount" class="inline-block bg-orange-500 text-white text-xs px-2 rounded-full uppercase font-semibold tracking-wide">{{cartItemsCount}}</span>
+      </a>
+    </li>
+    <li class="flex mr-6">
+      <a appButtonStyle="gray" class="" routerLink="order" routerLinkActive="bg-gray-600">Order</a>
+    </li>
+    <li class="flex mr-6">
+      <a appButtonStyle="gray" class="" routerLink="admin" routerLinkActive="bg-gray-600">Admin</a>
+    </li>
+    <li class="flex mr-6">
+      <a appButtonStyle="gray" class="cursor-pointer"  (click)="openRandomProduct()">Random Product</a>
+    </li>
+  </ul>
+
+  <ul class="flex">
+    <li class="flex">
+      <app-auth></app-auth>
+    </li>
+  </ul>
+</div>

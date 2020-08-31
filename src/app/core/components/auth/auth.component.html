@@ -1,0 +1,9 @@
+<button appButtonStyle="red" (click)="onLogOut()" *ngIf="authService.userLoggedIn; else logOutButton">
+  <span>Log Out</span>
+</button>
+
+<ng-template #logOutButton>
+  <button appButtonStyle="green" (click)="onLogIn()">
+    <span>Log In</span>
+  </button>
+</ng-template>
