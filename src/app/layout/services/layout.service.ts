@@ -9,18 +9,13 @@ import {map} from 'rxjs/operators';
 export class LayoutService {
   showSpinner$ = new BehaviorSubject<boolean>(false);
 
-  constructor(private authService: AuthService) {
-    this.authService.inProgress$.subscribe(show => this.showSpinner$.next(show));
-
-    this.showSpinner$.subscribe(v => console.log('> LAYOUT SERVICE showSpinner$', v));
+  constructor() {
   }
 
   showManually() {
-    // return of(true);
     this.showSpinner$.next(true);
   }
   hideManually() {
-    // return of(false);
     this.showSpinner$.next(false);
   }
 }

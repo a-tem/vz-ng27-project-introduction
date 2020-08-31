@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable, of} from 'rxjs';
 import {delay, tap} from 'rxjs/operators';
+import {LayoutService} from '@app/layout/services/layout.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,16 +11,16 @@ export class AuthService {
   redirectUrl: string;
   inProgress$ = new BehaviorSubject<boolean>(false);
 
-  constructor() {
+  constructor(private layoutService: LayoutService) {
   }
 
   logIn() {
-    this.inProgress$.next(true);
+    this.layoutService.showManually();
     return this.updateValueWithDelay(true, 1500);
   }
 
   logOut() {
-    this.inProgress$.next(false);
+    this.layoutService.hideManually();
     this.userLoggedIn = false;
   }
 
@@ -27,9 +28,8 @@ export class AuthService {
     return of(value).pipe(
       delay(delayTime),
       tap(() => {
-        console.log('> SRV TAP called', value);
         this.userLoggedIn = value;
-        this.inProgress$.next(false);
+        this.layoutService.hideManually();
       })
     );
   }

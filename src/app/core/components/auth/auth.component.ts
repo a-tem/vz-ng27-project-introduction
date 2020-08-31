@@ -25,8 +25,7 @@ export class AuthComponent implements OnInit, OnDestroy {
     this.subs = this.authService.logIn()
       .pipe(
         tap(loggedIn => {
-          console.log('> CMP onLogIn TAP', loggedIn);
-          const url = this.authService.redirectUrl || 'admin';
+          const url = this.authService.redirectUrl || 'admin/dashboard';
           this.router.navigate([url]);
         })
       )
