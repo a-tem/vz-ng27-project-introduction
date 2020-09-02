@@ -13,8 +13,9 @@ export class LocalStorageService {
     this.storage.setItem(key, JSON.stringify(value));
   }
 
-  addNestedItem<T>(storageKey: string, propertyKey: string, value: T) {
-    let storageItem = this.getItem<T>(storageKey);
+  addNestedItem<T>(storageKey: string, propertyKey: string, value: T): void {
+    let storageItem = this.getItem<{[key: string]: T}>(storageKey);
+
     if (storageItem) {
       if (typeof storageItem === 'string') {
         throw new Error(`Property is string, can't update ${propertyKey} value`);
@@ -22,9 +23,9 @@ export class LocalStorageService {
         storageItem[propertyKey] = value;
       }
     } else {
-      storageItem = {[propertyKey]: value} as unknown as T;
+      storageItem = {[propertyKey]: value};
     }
-    this.setItem<T>(storageKey, storageItem);
+    this.setItem<{[key: string]: T}>(storageKey, storageItem);
   }
 
   getItem<T>(key: string): T {
