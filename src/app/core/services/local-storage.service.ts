@@ -14,6 +14,11 @@ export class LocalStorageService {
   }
 
   addNestedItem<T>(storageKey: string, propertyKey: string, value: T) {
+    // Тут есть какая-то немного путаница
+    // storageItem имеет тип T, так как getItem возвращает тип T
+    // затем вы пишите, что value тоже имеет тип T
+    // и в итоге storageItem принимает в конце значение объекта, у которого значение ключа будет типа Т и сам объект типа Т
+    // Мне кажется, что тут немного нестыковка.
     let storageItem = this.getItem<T>(storageKey);
     if (storageItem) {
       if (typeof storageItem === 'string') {
