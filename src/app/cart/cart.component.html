@@ -1,18 +1,27 @@
-<ng-container *ngIf="cartService.totalQuantity; else emptyCart">
-  <app-cart-list class="mb-4"></app-cart-list>
+<ng-container *ngIf="(cartService.cartCombinedItems$ | async) as cartItemsList; else loadCartItems">
+  <ng-container *ngIf="cartItemsList.length; else emptyCart">
+    <app-cart-list
+      [cartItems]="cartItemsList"
+      class="mb-4"
+    ></app-cart-list>
 
-  <button
-    appButtonStyle="blue"
-    (click)="clearCart()"
-  >Clear Cart</button>
+    <button
+      appButtonStyle="blue"
+      (click)="clearCart()"
+    >Clear Cart</button>
 
-  <button
-    appButtonStyle="red"
-    (click)="createOrder()"
-  >Create Order</button>
+    <button
+      appButtonStyle="red"
+      (click)="createOrder()"
+    >Create Order</button>
+  </ng-container>
 </ng-container>
 
 <ng-template #emptyCart>
   <h3>Cart is empty, did you forgot to buy something?</h3>
   <button appButtonStyle="blue" routerLink="/home">Go for some products</button>
+</ng-template>
+
+<ng-template #loadCartItems>
+  <h3>Cart is loading, please wait a bit.</h3>
 </ng-template>

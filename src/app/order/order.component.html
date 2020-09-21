@@ -1,14 +1,16 @@
-<ng-container *ngIf="productsForOrder && productsForOrder.length; else noItemsInCart">
-  <div class="flex flex-row">
-    <div class="flex flex-col w-3/4 pr-4">
-      <div class="text-gray-700 text-2xl font-bold mt-2 mb-8">Customer Info</div>
-      <app-order-form [products]="productsForOrder" class="w-full mr-4"></app-order-form>
+<ng-container *ngIf="(productsForOrder$ | async) as cartData; else loading">
+  <ng-container *ngIf="cartData.length; else noItemsInCart">
+    <div class="flex flex-row">
+      <div class="flex flex-col w-3/4 pr-4">
+        <div class="text-gray-700 text-2xl font-bold mt-2 mb-8">Customer Info</div>
+        <app-order-form [products]="cartData" class="w-full mr-4"></app-order-form>
+      </div>
+      <div class="flex flex-col w-1/4 pl-4">
+        <div class="text-gray-700 text-2xl font-bold mt-2 mb-8">Cart Info</div>
+        <app-cart-info [products]="cartData"></app-cart-info>
+      </div>
     </div>
-    <div class="flex flex-col w-1/4 pl-4">
-      <div class="text-gray-700 text-2xl font-bold mt-2 mb-8">Cart Info</div>
-      <app-cart-info [products]="productsForOrder"></app-cart-info>
-    </div>
-  </div>
+  </ng-container>
 </ng-container>
 
 <ng-template #noItemsInCart>
@@ -16,4 +18,8 @@
   <div class="my-4">
     <a routerLink="/home" appButtonStyle="blue">Go for Products</a>
   </div>
+</ng-template>
+
+<ng-template #loading>
+  <div>Cart data is loading, please wait.</div>
 </ng-template>

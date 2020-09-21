@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {IProductModel} from '@shared/models/product.model';
-import {ICartCombinedItem, ICartInfo} from '@shared/models/cart.model';
+import {ICartCombinedItem} from '@shared/models/cart.model';
+import {CartPromiseService} from '@cart/services/cart-promise.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,24 +11,23 @@ export class CartService {
   totalQuantity: number;
   totalSum: number;
 
-  constructor() { }
+  cartCombinedItems$: Promise<ICartCombinedItem[]>;
+
+  constructor(private cartPromiseService: CartPromiseService) {
+    this.cartCombinedItems$ = this.cartPromiseService.createOrLoadSessionData();
+    this.cartCombinedItems$.then(resp => {
+      this.cartProducts = resp.reduce((acc, cur) => {
+        acc.push(...cur.items);
+        return acc;
+      }, []);
+      this.totalQuantity = this.cartProducts.length;
+    });
+  }
 
   addProduct(product: IProductModel) {
     this.cartProducts.push(product);
 
     this.updateCartData();
-  }
-
-  get cartProductsList(): ICartCombinedItem[] {
-    return this.cartProducts.reduce((acc: ICartCombinedItem[], cur) => {
-      const itemIndex = acc.findIndex(item => item.name === cur.name);
-      if (itemIndex >= 0) {
-        acc[itemIndex].items.push(cur);
-      } else {
-        acc.push({name: cur.name, image: cur.image, items: [cur]});
-      }
-      return acc;
-    }, []);
   }
 
   increaseQuantity(name: string) {
@@ -57,8 +57,25 @@ export class CartService {
   }
 
   updateCartData() {
-    this.totalSum = this.cartProducts.reduce((acc, cur) => acc + cur.price, 0);
+    /*this.totalSum = this.cartProducts.reduce((acc, cur) => acc + cur.price, 0);*/
     this.totalQuantity = this.cartProducts.length;
+
+    this.cartCombinedItems$ = this.cartPromiseService.updateCartState(this.convertProductsToCartItems()).then(resp => {
+      console.log('> SRV updated', resp.cartItems);
+      return resp.cartItems;
+    });
+  }
+
+  private convertProductsToCartItems(): ICartCombinedItem[] {
+    return this.cartProducts.reduce((acc: ICartCombinedItem[], cur) => {
+      const itemIndex = acc.findIndex(item => item.name === cur.name);
+      if (itemIndex >= 0) {
+        acc[itemIndex].items.push(cur);
+      } else {
+        acc.push({name: cur.name, image: cur.image, items: [cur]});
+      }
+      return acc;
+    }, []);
   }
 
 }
