@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {Confirm} from '@shared/decorators/confirm.decorator';
 import {ICartCombinedItem} from '@shared/models/cart.model';
 import {IOrderData} from '@shared/models/order.model';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-order-form',
@@ -20,6 +21,8 @@ export class OrderFormComponent implements OnInit {
   @ViewChild('orderCity') orderCity: ElementRef;
   @ViewChild('orderState') orderState: ElementRef;
   @ViewChild('orderZip') orderZip: ElementRef;
+
+  private sub: Subscription;
 
   constructor(private orderService: OrderService,
               private router: Router) { }
@@ -47,9 +50,12 @@ export class OrderFormComponent implements OnInit {
       totalSum: this.products.reduce((acc, item) => acc + item.items.reduce((innAcc, product) => innAcc += product.price, 0), 0),
     };
 
-    if (this.orderService.saveOrder(orderData)) {
+    /*if (this.orderService.saveOrder(orderData)) {
       this.goToProducts();
-    }
+    }*/
+    this.sub = this.orderService.saveOrder(orderData).subscribe(resp => {
+      this.goToProducts();
+    });
   }
 
   private goToProducts() {

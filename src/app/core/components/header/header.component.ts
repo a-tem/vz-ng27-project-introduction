@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {PRODUCTS_LIST} from '@shared/const/products.const';
 import {Router} from '@angular/router';
+import {AppSettingsService} from '@core/services/app-settings.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,9 @@ export class HeaderComponent implements OnInit {
 
   @Input() cartItemsCount: number;
 
-  constructor(private router: Router) { }
+  constructor(
+    public appSettingsService: AppSettingsService,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
