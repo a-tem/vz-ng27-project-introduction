@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {CartService} from '@cart/services/cart.service';
+import {ICartCombinedItem, ICartInfo} from '@shared/models/cart.model';
 
 @Component({
   selector: 'app-cart-list',
@@ -7,6 +8,7 @@ import {CartService} from '@cart/services/cart.service';
   styleUrls: ['./cart-list.component.scss'],
 })
 export class CartListComponent implements OnInit {
+  @Input() cartItems: ICartCombinedItem[];
 
   constructor(public cartService: CartService) { }
 

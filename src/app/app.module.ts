@@ -11,6 +11,7 @@ import { HeaderComponent } from './core/components/header/header.component';
 import { OrderModule } from './order/order.module';
 import {SharedModule} from '@shared/shared.module';
 import { AuthComponent } from './core/components/auth/auth.component';
+import {httpInterceptorProviders} from '@core/interceptors';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { AuthComponent } from './core/components/auth/auth.component';
 
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

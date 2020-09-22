@@ -19,12 +19,15 @@
       "@core/*": ["app/core/*"],
       "@shared/*": ["app/shared/*"],
       "@cart/*": ["app/cart/*"],
-      "@products/*": ["app/products/*"]
+      "@products/*": ["app/products/*"],
+      "@assets/*": ["assets/*"]
     },
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "resolveJsonModule": true,
+    "esModuleInterop": true
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

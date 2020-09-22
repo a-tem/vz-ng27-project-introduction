@@ -1,8 +1,8 @@
 
   <h3 appHighlight="rgba(0,0,255,.1)" class="text-2xl">
-    {{ cartService.totalQuantity }} items in Cart, with total price: {{ cartService.totalSum }}
+    Cart items
   </h3>
-  <div *ngFor="let product of cartService.cartProductsList; let i = index">
+  <div *ngFor="let product of cartItems; let i = index">
     <app-cart-item
       [item]="product"
       [isOdd]="isItemOdd(i)"

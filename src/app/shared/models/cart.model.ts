@@ -10,3 +10,8 @@ export interface ICartCombinedItem {
   items: IProductModel[];
   image?: string;
 }
+
+export interface ICartAPIResponse {
+  id: number;
+  cartItems: ICartCombinedItem[];
+}
