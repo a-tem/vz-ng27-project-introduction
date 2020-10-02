@@ -26,6 +26,7 @@ export class TimingInterceptor implements HttpInterceptor {
     );
   }
 
+  // можно и так, а можно воспользоваться объектом Date()
   private startCountingTime() {
     if (this.t) {
       clearInterval(this.t);

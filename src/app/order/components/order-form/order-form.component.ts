@@ -53,6 +53,7 @@ export class OrderFormComponent implements OnInit {
     /*if (this.orderService.saveOrder(orderData)) {
       this.goToProducts();
     }*/
+    // надо отписаться
     this.sub = this.orderService.saveOrder(orderData).subscribe(resp => {
       this.goToProducts();
     });
